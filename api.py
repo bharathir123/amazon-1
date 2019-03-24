@@ -69,6 +69,7 @@ def signup():
 					user_info['cart'] = []
 				create_user(user_info)
 				session['username'] = user_info['username']
+				session['c_type'] = user_info['c_type']
 				return redirect(url_for('home'))
 			return "passwords don't match. Re-enter the password accurately"
 		return "user exists already. Enter another username"
@@ -77,7 +78,7 @@ def signup():
 
 		return redirect(url_for('home'))
 
-		
+
 @app.route('/logout')
 def logout():
 		
